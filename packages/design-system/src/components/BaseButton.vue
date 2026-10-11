@@ -20,7 +20,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 const buttonClass = computed(() => {
   const baseClasses =
-    "group inline-flex items-center justify-center font-sans font-semibold rounded-[8px] cursor-pointer transition-colors duration-150 ease-in-out relative overflow-hidden no-underline whitespace-nowrap select-none";
+    "group inline-flex items-center justify-center font-sans font-semibold rounded-full cursor-pointer transition-colors duration-150 ease-in-out relative overflow-hidden no-underline whitespace-nowrap select-none";
 
   const sizeClasses = {
     sm: "px-[18px] py-[9px] text-[13px] gap-2",
