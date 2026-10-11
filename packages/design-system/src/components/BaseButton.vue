@@ -29,7 +29,7 @@ const buttonClass = computed(() => {
   }[props.size];
 
   const variantClasses = {
-    primary: "bg-primary text-white border border-primary hover:enabled:bg-primary-hover",
+    primary: "bg-primary text-on-primary border border-primary hover:enabled:bg-primary-hover",
     secondary:
       "bg-transparent text-text-primary border border-border-color hover:enabled:border-text-primary",
     glass:

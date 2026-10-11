@@ -3,17 +3,18 @@
   --font-sans: "Figtree", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
 
   /* Colores del design system (valores de respaldo) */
-  --color-primary: #2f6b43;
-  --color-primary-hover: #1f4a2e;
-  --color-secondary: #f6f4ea;
-  --color-secondary-hover: #ecefdf;
+  --color-primary: #facc15;
+  --color-primary-hover: #eab308;
+  --color-on-primary: #1f1a0a;
+  --color-secondary: #ffffff;
+  --color-secondary-hover: #fefbea;
 
-  --color-bg-secondary: #ecefdf;
-  --color-text-primary: #15281c;
+  --color-bg-secondary: #fefbea;
+  --color-text-primary: #1f1a0a;
 
-  --color-border-color: #dce2cf;
-  --color-glass-bg: rgba(246, 244, 234, 0.7);
-  --color-glass-border: rgba(21, 40, 28, 0.1);
+  --color-border-color: #efe9cf;
+  --color-glass-bg: rgba(255, 255, 255, 0.7);
+  --color-glass-border: rgba(31, 26, 10, 0.1);
 
   /* Radios */
   --radius-sm: 7px;

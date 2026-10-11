@@ -10,7 +10,7 @@ No arrancas desde una carpeta vacía. El servidor, la base de datos y el inicio 
 
 - **Herramientas de construcción**: [Vite+](https://viteplus.dev/) (`vp`), que agrupa Vite, Rolldown y Vitest.
 - **Interfaz**: [Vue 3](https://vuejs.org/) + TypeScript + Vue Router.
-- **Estilos**: [Tailwind CSS v4](https://tailwindcss.com/) con una paleta propia en verdes de bosque y fondos crema, con modo claro y oscuro.
+- **Estilos**: [Tailwind CSS v4](https://tailwindcss.com/) con una paleta propia en amarillo sobre fondo blanco, con modo claro y oscuro.
 - **Design system**: componentes reutilizables en un paquete propio.
 - **Servidor**: [Hono](https://hono.dev/) sobre Node.js.
 - **Usuarios**: [Better Auth](https://www.better-auth.com/) para registro e inicio de sesión.
@@ -106,7 +106,7 @@ _Nota: los dos servidores usan `vite-plugin-killer-instincts` junto con `strictP
 
 ## 🎨 Estilos (Tailwind CSS v4)
 
-- **Identidad visual**: los colores y tipografías se definen en `apps/frontend/src/index.css`, dentro del bloque `@theme`. El color de acento es el verde bosque `#2f6b43`, con una variante para el modo oscuro. Las fuentes se cargan desde Google Fonts en `apps/frontend/index.html`.
+- **Identidad visual**: los colores y tipografías se definen en `apps/frontend/src/index.css`, dentro del bloque `@theme`. El color de acento es el amarillo `#facc15` (con texto oscuro encima), más un ámbar `#a16207` para texto y enlaces, y una variante para el modo oscuro. Las fuentes se cargan desde Google Fonts en `apps/frontend/index.html`.
 - **Sin duplicación**: el paquete `@bambu/design-system` no compila Tailwind por su cuenta. Exporta los componentes Vue y un `theme.css` con variables de respaldo.
 - **Lectura de componentes**: la interfaz incluye los componentes del design system con la directiva `@source` en `index.css`:
   ```css

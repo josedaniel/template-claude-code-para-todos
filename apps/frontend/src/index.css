@@ -8,81 +8,79 @@
   --font-serif: "Fraunces", "Georgia", ui-serif, serif;
   --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
 
-  /* Colores de la página (modo claro por defecto): papel crema y verdes de bosque */
-  --color-bg: #f6f4ea;
-  --color-ink: #15281c;
-  --color-body: #34493c;
-  --color-muted: #5b6e60;
-  --color-line: #dce2cf;
-  --color-subtle: #ecefdf;
-  --color-accent: #2f6b43;
-  --color-accent-dark: #1f4a2e;
-  --color-accent-soft: #dcebd5;
-  --color-sun: #b7842f;
-  --color-forest: #12301f;
-  --color-nav-bg: rgba(246, 244, 234, 0.9);
+  /* Colores de la página (modo claro por defecto): fondo blanco y amarillo */
+  --color-bg: #ffffff;
+  --color-ink: #1f1a0a;
+  --color-body: #433b22;
+  --color-muted: #6b6244;
+  --color-line: #efe9cf;
+  --color-subtle: #fefbea;
+  --color-accent: #a16207;
+  --color-accent-dark: #854d0e;
+  --color-accent-soft: #fef3c7;
+  --color-forest: #1f1a0a;
+  --color-nav-bg: rgba(255, 255, 255, 0.9);
 
   /* Colores de los componentes del design system */
-  --color-primary: #2f6b43;
-  --color-primary-hover: #1f4a2e;
-  --color-secondary: #f6f4ea;
-  --color-secondary-hover: #ecefdf;
-  --color-bg-secondary: #ecefdf;
-  --color-text-primary: #15281c;
-  --color-border-color: #dce2cf;
-  --color-glass-bg: rgba(246, 244, 234, 0.7);
-  --color-glass-border: rgba(21, 40, 28, 0.1);
+  --color-primary: #facc15;
+  --color-primary-hover: #eab308;
+  --color-on-primary: #1f1a0a;
+  --color-secondary: #ffffff;
+  --color-secondary-hover: #fefbea;
+  --color-bg-secondary: #fefbea;
+  --color-text-primary: #1f1a0a;
+  --color-border-color: #efe9cf;
+  --color-glass-bg: rgba(255, 255, 255, 0.7);
+  --color-glass-border: rgba(31, 26, 10, 0.1);
 }
 
-/* Modo oscuro: bosque de noche */
+/* Modo oscuro: marrón oscuro de noche */
 :root[data-theme="dark"] {
-  --color-bg: #0e1a13;
-  --color-ink: #ecf2e4;
-  --color-body: #c4d1bf;
-  --color-muted: #8ea393;
-  --color-line: #213227;
-  --color-subtle: #13221a;
-  --color-accent: #8fd09b;
-  --color-accent-dark: #2f6b43;
-  --color-accent-soft: rgba(143, 208, 155, 0.13);
-  --color-sun: #e0b565;
-  --color-forest: #08130d;
-  --color-nav-bg: rgba(14, 26, 19, 0.9);
+  --color-bg: #14110a;
+  --color-ink: #fbf6e3;
+  --color-body: #d9d1b5;
+  --color-muted: #a49b7c;
+  --color-line: #2b2615;
+  --color-subtle: #1b170c;
+  --color-accent: #facc15;
+  --color-accent-dark: #eab308;
+  --color-accent-soft: rgba(250, 204, 21, 0.13);
+  --color-forest: #0c0a05;
+  --color-nav-bg: rgba(20, 17, 10, 0.9);
 
-  --color-primary: #2f7a4b;
-  --color-primary-hover: #3a8d59;
-  --color-secondary: #0e1a13;
-  --color-secondary-hover: #13221a;
-  --color-bg-secondary: #13221a;
-  --color-text-primary: #ecf2e4;
-  --color-border-color: #213227;
-  --color-glass-bg: rgba(19, 34, 26, 0.7);
+  --color-primary: #facc15;
+  --color-primary-hover: #fde047;
+  --color-secondary: #14110a;
+  --color-secondary-hover: #1b170c;
+  --color-bg-secondary: #1b170c;
+  --color-text-primary: #fbf6e3;
+  --color-border-color: #2b2615;
+  --color-glass-bg: rgba(27, 23, 12, 0.7);
   --color-glass-border: rgba(255, 255, 255, 0.08);
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --color-bg: #0e1a13;
-    --color-ink: #ecf2e4;
-    --color-body: #c4d1bf;
-    --color-muted: #8ea393;
-    --color-line: #213227;
-    --color-subtle: #13221a;
-    --color-accent: #8fd09b;
-    --color-accent-dark: #2f6b43;
-    --color-accent-soft: rgba(143, 208, 155, 0.13);
-    --color-sun: #e0b565;
-    --color-forest: #08130d;
-    --color-nav-bg: rgba(14, 26, 19, 0.9);
+    --color-bg: #14110a;
+    --color-ink: #fbf6e3;
+    --color-body: #d9d1b5;
+    --color-muted: #a49b7c;
+    --color-line: #2b2615;
+    --color-subtle: #1b170c;
+    --color-accent: #facc15;
+    --color-accent-dark: #eab308;
+    --color-accent-soft: rgba(250, 204, 21, 0.13);
+    --color-forest: #0c0a05;
+    --color-nav-bg: rgba(20, 17, 10, 0.9);
 
-    --color-primary: #2f7a4b;
-    --color-primary-hover: #3a8d59;
-    --color-secondary: #0e1a13;
-    --color-secondary-hover: #13221a;
-    --color-bg-secondary: #13221a;
-    --color-text-primary: #ecf2e4;
-    --color-border-color: #213227;
-    --color-glass-bg: rgba(19, 34, 26, 0.7);
+    --color-primary: #facc15;
+    --color-primary-hover: #fde047;
+    --color-secondary: #14110a;
+    --color-secondary-hover: #1b170c;
+    --color-bg-secondary: #1b170c;
+    --color-text-primary: #fbf6e3;
+    --color-border-color: #2b2615;
+    --color-glass-bg: rgba(27, 23, 12, 0.7);
     --color-glass-border: rgba(255, 255, 255, 0.08);
   }
 }

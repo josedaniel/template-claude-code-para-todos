@@ -103,7 +103,7 @@ const pasos = [
     >
       <a href="/" class="flex items-center gap-2.5 no-underline text-ink" aria-label="Inicio">
         <span
-          class="flex h-8 w-8 items-center justify-center rounded-[10px] bg-primary text-white"
+          class="flex h-8 w-8 items-center justify-center rounded-[10px] bg-primary text-on-primary"
           aria-hidden="true"
         >
           <Leaf :size="18" :stroke-width="2.2" />
@@ -212,7 +212,7 @@ const pasos = [
               <div class="flex gap-3 flex-wrap">
                 <a
                   href="#empezar"
-                  class="bg-primary text-white text-[15px] font-semibold py-[13px] px-7 rounded-full no-underline shadow-[0_8px_20px_-8px_var(--color-primary)] transition-colors hover:bg-primary-hover"
+                  class="bg-primary text-on-primary text-[15px] font-semibold py-[13px] px-7 rounded-full no-underline shadow-[0_8px_20px_-8px_var(--color-primary)] transition-colors hover:bg-primary-hover"
                   >Cómo empezar</a
                 >
                 <a
@@ -225,7 +225,7 @@ const pasos = [
 
             <!-- Conversación de ejemplo -->
             <div
-              class="border border-line rounded-[28px] bg-subtle p-5 grid gap-3.5 shadow-[0_28px_56px_-28px_rgba(18,48,31,0.35)]"
+              class="border border-line rounded-[28px] bg-subtle p-5 grid gap-3.5 shadow-[0_28px_56px_-28px_rgba(15,35,71,0.35)]"
               aria-label="Ejemplo de conversación con Claude"
             >
               <div class="flex items-center gap-2 pb-1 text-muted" aria-hidden="true">
@@ -237,7 +237,7 @@ const pasos = [
                 <span class="text-xs font-semibold tracking-wide">Claude Code</span>
               </div>
               <div
-                class="justify-self-end max-w-[88%] bg-primary text-white text-sm leading-normal py-3 px-4 rounded-[20px] rounded-br-[6px]"
+                class="justify-self-end max-w-[88%] bg-primary text-on-primary text-sm leading-normal py-3 px-4 rounded-[20px] rounded-br-[6px]"
               >
                 Lee inbox/ventas.xlsx y crea una página con el total vendido por mes, ordenado de
                 mayor a menor.
@@ -257,7 +257,7 @@ const pasos = [
       <!-- Qué incluye -->
       <section id="incluye" class="bg-subtle border-y border-line scroll-mt-16">
         <div class="max-w-[1080px] mx-auto px-8 py-20 max-sm:px-4 max-sm:py-14">
-          <p class="text-[12px] font-bold tracking-[1.2px] uppercase text-sun mb-3">Incluido</p>
+          <p class="text-[12px] font-bold tracking-[1.2px] uppercase text-accent mb-3">Incluido</p>
           <h2 class="font-serif text-[34px] font-semibold tracking-[-0.7px] leading-[1.1] mb-3">
             No arrancas desde una carpeta vacía
           </h2>
@@ -269,7 +269,7 @@ const pasos = [
             <div
               v-for="item in incluye"
               :key="item.titulo"
-              class="group bg-bg border border-line rounded-[22px] p-6 transition-all duration-200 hover:-translate-y-0.5 hover:border-accent hover:shadow-[0_18px_32px_-22px_rgba(18,48,31,0.45)]"
+              class="group bg-bg border border-line rounded-[22px] p-6 transition-all duration-200 hover:-translate-y-0.5 hover:border-accent hover:shadow-[0_18px_32px_-22px_rgba(15,35,71,0.45)]"
             >
               <span
                 class="mb-4 flex h-11 w-11 items-center justify-center rounded-[14px_14px_14px_4px] bg-accent-soft text-accent"
@@ -288,7 +288,9 @@ const pasos = [
         id="empezar"
         class="max-w-[1080px] mx-auto px-8 py-20 scroll-mt-16 max-sm:px-4 max-sm:py-14"
       >
-        <p class="text-[12px] font-bold tracking-[1.2px] uppercase text-sun mb-3">Primeros pasos</p>
+        <p class="text-[12px] font-bold tracking-[1.2px] uppercase text-accent mb-3">
+          Primeros pasos
+        </p>
         <h2 class="font-serif text-[34px] font-semibold tracking-[-0.7px] leading-[1.1] mb-3">
           Tres pasos, ningún comando
         </h2>
@@ -323,20 +325,20 @@ Lee el archivo inbox/ventas.xlsx y crea una página que muestre el total vendido
     </main>
 
     <!-- Pie de página -->
-    <footer class="bg-forest text-[#c4d1bf]">
+    <footer class="bg-forest text-[#d9d1b5]">
       <div
         class="max-w-[1080px] mx-auto px-8 py-10 flex items-center justify-between gap-4 max-sm:px-4 max-sm:flex-col max-sm:text-center"
       >
-        <span class="flex items-center gap-2.5 font-serif font-semibold text-[#ecf2e4]">
+        <span class="flex items-center gap-2.5 font-serif font-semibold text-[#fbf6e3]">
           <span
-            class="flex h-6 w-6 items-center justify-center rounded-lg bg-primary text-white"
+            class="flex h-6 w-6 items-center justify-center rounded-lg bg-primary text-on-primary"
             aria-hidden="true"
           >
             <Leaf :size="14" :stroke-width="2.2" />
           </span>
           Claude Code para Todos
         </span>
-        <span class="text-[13px] text-[#8ea393]">© {{ year }} Claude Code para Todos</span>
+        <span class="text-[13px] text-[#a49b7c]">© {{ year }} Claude Code para Todos</span>
       </div>
     </footer>
   </div>
