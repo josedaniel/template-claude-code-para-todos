@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@bambu/design-system": "workspace:*",
+    "@fontsource-variable/figtree": "catalog:",
+    "@fontsource-variable/fraunces": "catalog:",
     "better-auth": "catalog:",
     "lucide-vue-next": "catalog:",
     "vue": "catalog:",

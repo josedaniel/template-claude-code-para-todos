@@ -4,8 +4,8 @@
 
 @theme {
   /* Tipografías: Fraunces (serif orgánica) para títulos, Figtree para texto */
-  --font-sans: "Figtree", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-serif: "Fraunces", "Georgia", ui-serif, serif;
+  --font-sans: "Figtree Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-serif: "Fraunces Variable", "Georgia", ui-serif, serif;
   --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
 
   /* Colores de la página (modo claro por defecto): fondo blanco y amarillo */
@@ -18,7 +18,7 @@
   --color-accent: #a16207;
   --color-accent-dark: #854d0e;
   --color-accent-soft: #fef3c7;
-  --color-forest: #1f1a0a;
+  --color-footer: #1f1a0a;
   --color-nav-bg: rgba(255, 255, 255, 0.9);
 
   /* Colores de los componentes del design system */
@@ -45,7 +45,7 @@
   --color-accent: #facc15;
   --color-accent-dark: #eab308;
   --color-accent-soft: rgba(250, 204, 21, 0.13);
-  --color-forest: #0c0a05;
+  --color-footer: #0c0a05;
   --color-nav-bg: rgba(20, 17, 10, 0.9);
 
   --color-primary: #facc15;
@@ -70,7 +70,7 @@
     --color-accent: #facc15;
     --color-accent-dark: #eab308;
     --color-accent-soft: rgba(250, 204, 21, 0.13);
-    --color-forest: #0c0a05;
+    --color-footer: #0c0a05;
     --color-nav-bg: rgba(20, 17, 10, 0.9);
 
     --color-primary: #facc15;

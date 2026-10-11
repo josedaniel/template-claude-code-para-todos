@@ -15,7 +15,7 @@ No arrancas desde una carpeta vacía. El servidor, la base de datos y el inicio 
 - **Servidor**: [Hono](https://hono.dev/) sobre Node.js.
 - **Usuarios**: [Better Auth](https://www.better-auth.com/) para registro e inicio de sesión.
 - **Base de datos**: [SQLite (LibSQL)](https://github.com/tursodatabase/libsql) + [Drizzle ORM](https://orm.drizzle.team/) para migraciones y consultas.
-- **Tipografías**: [Fraunces](https://fonts.google.com/specimen/Fraunces) para títulos y [Figtree](https://fonts.google.com/specimen/Figtree) para texto, cargadas desde Google Fonts.
+- **Tipografías**: [Fraunces](https://fonts.google.com/specimen/Fraunces) para títulos y [Figtree](https://fonts.google.com/specimen/Figtree) para texto, instaladas como paquetes (`@fontsource-variable`), así que funcionan sin conexión y sin pedirle nada a servidores externos.
 - **Íconos**: [Lucide Icons](https://lucide.dev/) (`lucide-vue-next`).
 - **Paquetes**: espacios de trabajo de [pnpm](https://pnpm.io/).
 
@@ -106,7 +106,7 @@ _Nota: los dos servidores usan `vite-plugin-killer-instincts` junto con `strictP
 
 ## 🎨 Estilos (Tailwind CSS v4)
 
-- **Identidad visual**: los colores y tipografías se definen en `apps/frontend/src/index.css`, dentro del bloque `@theme`. El color de acento es el amarillo `#facc15` (con texto oscuro encima), más un ámbar `#a16207` para texto y enlaces, y una variante para el modo oscuro. Las fuentes se cargan desde Google Fonts en `apps/frontend/index.html`.
+- **Identidad visual**: los colores y tipografías se definen en `apps/frontend/src/index.css`, dentro del bloque `@theme`. El color de acento es el amarillo `#facc15` (con texto oscuro encima), más un ámbar `#a16207` para texto y enlaces, y una variante para el modo oscuro. Las fuentes se importan en `apps/frontend/src/main.ts`.
 - **Sin duplicación**: el paquete `@bambu/design-system` no compila Tailwind por su cuenta. Exporta los componentes Vue y un `theme.css` con variables de respaldo.
 - **Lectura de componentes**: la interfaz incluye los componentes del design system con la directiva `@source` en `index.css`:
   ```css

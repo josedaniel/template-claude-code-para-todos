@@ -1,6 +1,6 @@
 :root {
   /* Tipografía */
-  --font-sans: "Figtree", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-sans: "Figtree Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
 
   /* Colores del design system (valores de respaldo) */
   --color-primary: #facc15;

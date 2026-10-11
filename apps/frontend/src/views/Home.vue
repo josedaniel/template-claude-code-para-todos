@@ -225,7 +225,7 @@ const pasos = [
 
             <!-- Conversación de ejemplo -->
             <div
-              class="border border-line rounded-[28px] bg-subtle p-5 grid gap-3.5 shadow-[0_28px_56px_-28px_rgba(15,35,71,0.35)]"
+              class="border border-line rounded-[28px] bg-subtle p-5 grid gap-3.5 shadow-[0_28px_56px_-28px_rgba(31,26,10,0.25)]"
               aria-label="Ejemplo de conversación con Claude"
             >
               <div class="flex items-center gap-2 pb-1 text-muted" aria-hidden="true">
@@ -269,7 +269,7 @@ const pasos = [
             <div
               v-for="item in incluye"
               :key="item.titulo"
-              class="group bg-bg border border-line rounded-[22px] p-6 transition-all duration-200 hover:-translate-y-0.5 hover:border-accent hover:shadow-[0_18px_32px_-22px_rgba(15,35,71,0.45)]"
+              class="group bg-bg border border-line rounded-[22px] p-6 transition-all duration-200 hover:-translate-y-0.5 hover:border-accent hover:shadow-[0_18px_32px_-22px_rgba(31,26,10,0.3)]"
             >
               <span
                 class="mb-4 flex h-11 w-11 items-center justify-center rounded-[14px_14px_14px_4px] bg-accent-soft text-accent"
@@ -325,7 +325,7 @@ Lee el archivo inbox/ventas.xlsx y crea una página que muestre el total vendido
     </main>
 
     <!-- Pie de página -->
-    <footer class="bg-forest text-[#d9d1b5]">
+    <footer class="bg-footer text-[#d9d1b5]">
       <div
         class="max-w-[1080px] mx-auto px-8 py-10 flex items-center justify-between gap-4 max-sm:px-4 max-sm:flex-col max-sm:text-center"
       >

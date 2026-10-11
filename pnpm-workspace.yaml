@@ -8,13 +8,15 @@ catalogMode: prefer
 catalog:
   "@types/node": ^24
   typescript: ^5
-  vite: npm:@voidzero-dev/vite-plus-core@latest
-  vitest: npm:@voidzero-dev/vite-plus-test@latest
-  vite-plus: latest
+  vite: npm:@voidzero-dev/vite-plus-core@0.2.5
+  vitest: npm:@voidzero-dev/vite-plus-test@0.1.24
+  vite-plus: 0.2.5
   vue: ^3.5.13
   vue-router: ^4.5.0
   "@vitejs/plugin-vue": ^5.2.1
   lucide-vue-next: ^0.475.0
+  "@fontsource-variable/fraunces": ^5.2.0
+  "@fontsource-variable/figtree": ^5.2.0
   vite-plugin-dts: ^4.5.0
   hono: ^4.6.14
   "better-auth": ^1.1.1
