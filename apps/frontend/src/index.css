@@ -3,84 +3,82 @@
 @source "../../../packages/design-system/src/**/*.vue";
 
 @theme {
-  /* Tipografías: Fraunces (serif orgánica) para títulos, Figtree para texto */
+  /* Tipografías: Fraunces (serif) para títulos, Figtree para texto, ambas locales con @fontsource */
   --font-sans: "Figtree Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-serif: "Fraunces Variable", "Georgia", ui-serif, serif;
   --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
 
-  /* Colores de la página (modo claro por defecto): fondo blanco y amarillo */
+  /* Colores (modo claro por defecto): neutros */
   --color-bg: #ffffff;
-  --color-ink: #1f1a0a;
-  --color-body: #433b22;
-  --color-muted: #6b6244;
-  --color-line: #efe9cf;
-  --color-subtle: #fefbea;
-  --color-accent: #a16207;
-  --color-accent-dark: #854d0e;
-  --color-accent-soft: #fef3c7;
-  --color-footer: #1f1a0a;
+  --color-ink: #171717;
+  --color-body: #404040;
+  --color-muted: #666666;
+  --color-line: #e5e5e5;
+  --color-subtle: #fafafa;
+  --color-accent: #171717;
+  --color-accent-dark: #000000;
+  --color-accent-soft: #f4f4f5;
   --color-nav-bg: rgba(255, 255, 255, 0.9);
 
-  /* Colores de los componentes del design system */
-  --color-primary: #facc15;
-  --color-primary-hover: #eab308;
-  --color-on-primary: #1f1a0a;
+  --color-primary: #171717;
+  --color-primary-hover: #404040;
+  --color-on-primary: #ffffff;
   --color-secondary: #ffffff;
-  --color-secondary-hover: #fefbea;
-  --color-bg-secondary: #fefbea;
-  --color-text-primary: #1f1a0a;
-  --color-border-color: #efe9cf;
+  --color-secondary-hover: #fafafa;
+  --color-bg-secondary: #fafafa;
+  --color-text-primary: #171717;
+  --color-border-color: #e5e5e5;
   --color-glass-bg: rgba(255, 255, 255, 0.7);
-  --color-glass-border: rgba(31, 26, 10, 0.1);
+  --color-glass-border: rgba(0, 0, 0, 0.08);
 }
 
-/* Modo oscuro: marrón oscuro de noche */
+/* Modo oscuro */
 :root[data-theme="dark"] {
-  --color-bg: #14110a;
-  --color-ink: #fbf6e3;
-  --color-body: #d9d1b5;
-  --color-muted: #a49b7c;
-  --color-line: #2b2615;
-  --color-subtle: #1b170c;
-  --color-accent: #facc15;
-  --color-accent-dark: #eab308;
-  --color-accent-soft: rgba(250, 204, 21, 0.13);
-  --color-footer: #0c0a05;
-  --color-nav-bg: rgba(20, 17, 10, 0.9);
+  --color-bg: #0a0a0a;
+  --color-ink: #fafafa;
+  --color-body: #d4d4d4;
+  --color-muted: #a3a3a3;
+  --color-line: #262626;
+  --color-subtle: #121212;
+  --color-accent: #fafafa;
+  --color-accent-dark: #ffffff;
+  --color-accent-soft: rgba(255, 255, 255, 0.08);
+  --color-nav-bg: rgba(10, 10, 10, 0.9);
 
-  --color-primary: #facc15;
-  --color-primary-hover: #fde047;
-  --color-secondary: #14110a;
-  --color-secondary-hover: #1b170c;
-  --color-bg-secondary: #1b170c;
-  --color-text-primary: #fbf6e3;
-  --color-border-color: #2b2615;
-  --color-glass-bg: rgba(27, 23, 12, 0.7);
+  --color-primary: #fafafa;
+  --color-primary-hover: #d4d4d4;
+  --color-on-primary: #0a0a0a;
+  --color-secondary: #0a0a0a;
+  --color-secondary-hover: #121212;
+  --color-bg-secondary: #121212;
+  --color-text-primary: #fafafa;
+  --color-border-color: #262626;
+  --color-glass-bg: rgba(18, 18, 18, 0.7);
   --color-glass-border: rgba(255, 255, 255, 0.08);
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --color-bg: #14110a;
-    --color-ink: #fbf6e3;
-    --color-body: #d9d1b5;
-    --color-muted: #a49b7c;
-    --color-line: #2b2615;
-    --color-subtle: #1b170c;
-    --color-accent: #facc15;
-    --color-accent-dark: #eab308;
-    --color-accent-soft: rgba(250, 204, 21, 0.13);
-    --color-footer: #0c0a05;
-    --color-nav-bg: rgba(20, 17, 10, 0.9);
+    --color-bg: #0a0a0a;
+    --color-ink: #fafafa;
+    --color-body: #d4d4d4;
+    --color-muted: #a3a3a3;
+    --color-line: #262626;
+    --color-subtle: #121212;
+    --color-accent: #fafafa;
+    --color-accent-dark: #ffffff;
+    --color-accent-soft: rgba(255, 255, 255, 0.08);
+    --color-nav-bg: rgba(10, 10, 10, 0.9);
 
-    --color-primary: #facc15;
-    --color-primary-hover: #fde047;
-    --color-secondary: #14110a;
-    --color-secondary-hover: #1b170c;
-    --color-bg-secondary: #1b170c;
-    --color-text-primary: #fbf6e3;
-    --color-border-color: #2b2615;
-    --color-glass-bg: rgba(27, 23, 12, 0.7);
+    --color-primary: #fafafa;
+    --color-primary-hover: #d4d4d4;
+    --color-on-primary: #0a0a0a;
+    --color-secondary: #0a0a0a;
+    --color-secondary-hover: #121212;
+    --color-bg-secondary: #121212;
+    --color-text-primary: #fafafa;
+    --color-border-color: #262626;
+    --color-glass-bg: rgba(18, 18, 18, 0.7);
     --color-glass-border: rgba(255, 255, 255, 0.08);
   }
 }
@@ -100,7 +98,6 @@
   h2,
   h3 {
     font-optical-sizing: auto;
-    font-variation-settings: "SOFT" 100;
   }
 
   ::selection {

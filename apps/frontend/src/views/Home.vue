@@ -1,19 +1,24 @@
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
 import {
+  AppWindow,
+  Check,
+  Component,
+  Copy,
   Database,
   FileText,
-  FolderOpen,
-  Leaf,
+  Inbox,
+  KeyRound,
   Moon,
-  Palette,
+  Paintbrush,
   Server,
-  Sparkles,
   Sun,
-  Users,
+  Terminal,
+  Zap,
 } from "lucide-vue-next";
 
 const theme = ref("light");
+const copiado = ref<number | null>(null);
 const year = new Date().getFullYear();
 
 const toggleTheme = () => {
@@ -30,67 +35,84 @@ onMounted(() => {
   document.documentElement.setAttribute("data-theme", theme.value);
 });
 
-// Forma de hoja reutilizada en las ramas decorativas
-const hoja = "M0 0C8-16 34-16 46 0 34 16 8 16 0 0ZM2 0H40";
-const rama = [
-  [45, 320, -35, 1.2],
-  [45, 320, -150, 1],
-  [70, 255, -30, 1.3],
-  [70, 255, -155, 1.1],
-  [100, 190, -25, 1.2],
-  [100, 190, -160, 1],
-  [135, 120, -30, 1],
-  [135, 120, -150, 0.85],
-  [170, 40, -80, 0.9],
+const copiar = async (texto: string, indice: number) => {
+  await navigator.clipboard.writeText(texto);
+  copiado.value = indice;
+  setTimeout(() => {
+    if (copiado.value === indice) copiado.value = null;
+  }, 1500);
+};
+
+const prompts = [
+  {
+    titulo: "Leer un archivo de Excel",
+    texto:
+      "Lee el archivo inbox/ventas.xlsx y crea una página que muestre el total vendido por mes, ordenado de mayor a menor. Usa únicamente los datos del archivo.",
+  },
+  {
+    titulo: "Guardar información",
+    texto:
+      "Crea una página con un formulario para registrar clientes (nombre, correo y teléfono) y una tabla que los liste. Guarda los datos en la base de datos.",
+  },
+  {
+    titulo: "Proteger una página",
+    texto:
+      "Haz que la página de clientes solo la vean las personas que iniciaron sesión, y muestra su nombre en la barra superior.",
+  },
+  {
+    titulo: "Importar datos",
+    texto:
+      "Importa inbox/productos.csv a la base de datos y crea una página para buscar los productos por nombre.",
+  },
 ];
 
-const incluye = [
+const stack = [
   {
-    icono: Database,
-    titulo: "Base de datos",
-    texto: "SQLite guarda tu información en un solo archivo de tu computadora.",
+    icono: AppWindow,
+    nombre: "Vue 3 + TypeScript",
+    texto: "Construye lo que ves en pantalla: páginas, formularios y tablas.",
+  },
+  {
+    icono: Paintbrush,
+    nombre: "Tailwind CSS",
+    texto: "Da el estilo a la interfaz: colores, espacios y tipografía.",
+  },
+  {
+    icono: Component,
+    nombre: "Design system",
+    texto: "Componentes reutilizables, como los botones, para que todo se vea igual de coherente.",
   },
   {
     icono: Server,
-    titulo: "Servidor local",
-    texto: "Procesa tus archivos sin enviarlos a internet.",
+    nombre: "Hono",
+    texto:
+      "El servidor. Recibe lo que pide la interfaz, procesa tus archivos y habla con la base de datos.",
   },
   {
-    icono: Users,
-    titulo: "Usuarios",
-    texto: "Registro e inicio de sesión ya configurados, con una cuenta por persona.",
+    icono: Database,
+    nombre: "SQLite + Drizzle",
+    texto:
+      "SQLite guarda tu información en un solo archivo de tu computadora. Drizzle define las tablas y hace las consultas.",
   },
   {
-    icono: FolderOpen,
-    titulo: "Carpeta inbox/",
+    icono: KeyRound,
+    nombre: "Better Auth",
+    texto: "Registro e inicio de sesión, con una cuenta por persona.",
+  },
+  {
+    icono: Zap,
+    nombre: "Vite+ (vp)",
+    texto: "Instala, arranca y revisa el proyecto con comandos como vp run dev y vp check.",
+  },
+  {
+    icono: Inbox,
+    nombre: "Carpeta inbox/",
     texto: "El lugar para dejar tus archivos de prueba: hojas de Excel, PDF o imágenes.",
   },
   {
     icono: FileText,
-    titulo: "Instrucciones para Claude",
-    texto: "Un archivo AGENTS.md que mantiene el proyecto ordenado y predecible.",
-  },
-  {
-    icono: Palette,
-    titulo: "Design system",
-    texto: "Botones y colores reutilizables para que todo se vea coherente.",
-  },
-];
-
-const pasos = [
-  {
-    titulo: "Abre esta carpeta en Claude Code",
-    texto:
-      "Selecciona la carpeta del proyecto como espacio de trabajo. Claude lee las instrucciones del proyecto antes de tocar cualquier archivo.",
-  },
-  {
-    titulo: "Deja tus archivos en inbox/",
-    texto: "Hojas de Excel, documentos o imágenes. Usa siempre datos ficticios o anonimizados.",
-  },
-  {
-    titulo: "Pídele lo que necesitas",
-    texto:
-      "Descríbelo como se lo explicarías a un compañero nuevo: qué entra, qué reglas aplica y qué debe salir.",
+    nombre: "AGENTS.md",
+    texto: "Las instrucciones que Claude lee antes de tocar el proyecto, para mantenerlo ordenado.",
   },
 ];
 </script>
@@ -103,10 +125,10 @@ const pasos = [
     >
       <a href="/" class="flex items-center gap-2.5 no-underline text-ink" aria-label="Inicio">
         <span
-          class="flex h-8 w-8 items-center justify-center rounded-[10px] bg-primary text-on-primary"
+          class="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-on-primary"
           aria-hidden="true"
         >
-          <Leaf :size="18" :stroke-width="2.2" />
+          <Terminal :size="17" :stroke-width="2.2" />
         </span>
         <span class="font-serif font-semibold text-[18px] tracking-[-0.3px]"
           >Claude Code para Todos</span
@@ -114,17 +136,17 @@ const pasos = [
       </a>
       <div class="flex items-center gap-5">
         <a
-          href="#incluye"
-          class="text-sm font-medium text-muted no-underline transition-colors hover:text-accent max-sm:hidden"
-          >Qué incluye</a
+          href="#prompts"
+          class="text-sm font-medium text-muted no-underline transition-colors hover:text-ink max-sm:hidden"
+          >Prompts</a
         >
         <a
-          href="#empezar"
-          class="text-sm font-medium text-muted no-underline transition-colors hover:text-accent max-sm:hidden"
-          >Cómo empezar</a
+          href="#stack"
+          class="text-sm font-medium text-muted no-underline transition-colors hover:text-ink max-sm:hidden"
+          >Stack</a
         >
         <button
-          class="bg-transparent border border-line rounded-full w-9 h-9 cursor-pointer p-0 flex items-center justify-center text-muted transition-colors hover:text-accent hover:border-accent"
+          class="bg-transparent border border-line rounded-full w-9 h-9 cursor-pointer p-0 flex items-center justify-center text-muted transition-colors hover:text-ink hover:border-ink"
           :aria-label="theme === 'dark' ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'"
           @click="toggleTheme"
         >
@@ -136,210 +158,102 @@ const pasos = [
 
     <main class="flex-1">
       <!-- Portada -->
-      <section class="relative overflow-hidden">
-        <!-- Ramas decorativas -->
-        <svg
-          class="absolute -right-10 top-0 h-[460px] w-[280px] text-accent opacity-[0.14] max-md:hidden"
-          viewBox="0 0 240 400"
-          fill="none"
-          aria-hidden="true"
+      <section class="max-w-[960px] mx-auto px-8 pt-24 pb-16 max-sm:px-4 max-sm:pt-14 max-sm:pb-10">
+        <h1
+          class="font-serif text-[clamp(36px,5vw,54px)] font-semibold tracking-[-1.2px] leading-[1.08] text-ink mb-5 max-w-[640px]"
         >
-          <path
-            d="M20 380C60 280 90 180 170 40"
-            stroke="currentColor"
-            stroke-width="3"
-            stroke-linecap="round"
-          />
-          <path
-            v-for="([x, y, giro, escala], i) in rama"
-            :key="i"
-            :d="hoja"
-            :transform="`translate(${x} ${y}) rotate(${giro}) scale(${escala})`"
-            fill="currentColor"
-            stroke="var(--color-bg)"
-            stroke-width="1.2"
-          />
-        </svg>
-        <svg
-          class="absolute -left-16 bottom-0 h-[340px] w-[210px] text-accent opacity-[0.1] -scale-x-100 max-md:hidden"
-          viewBox="0 0 240 400"
-          fill="none"
-          aria-hidden="true"
-        >
-          <path
-            d="M20 380C60 280 90 180 170 40"
-            stroke="currentColor"
-            stroke-width="3"
-            stroke-linecap="round"
-          />
-          <path
-            v-for="([x, y, giro, escala], i) in rama"
-            :key="i"
-            :d="hoja"
-            :transform="`translate(${x} ${y}) rotate(${giro}) scale(${escala})`"
-            fill="currentColor"
-            stroke="var(--color-bg)"
-            stroke-width="1.2"
-          />
-        </svg>
-        <div
-          class="absolute left-1/2 top-[-180px] h-[420px] w-[720px] -translate-x-1/2 rounded-full bg-accent-soft blur-3xl opacity-70"
-          aria-hidden="true"
-        ></div>
-
-        <div
-          class="relative max-w-[1080px] mx-auto px-8 pt-24 pb-24 max-sm:px-4 max-sm:pt-12 max-sm:pb-14"
-        >
-          <div
-            class="grid grid-cols-[1.1fr_1fr] gap-14 items-center max-md:grid-cols-1 max-md:gap-10"
+          Construye tu propia herramienta, sin ser programador
+        </h1>
+        <p class="text-lg text-muted leading-[1.7] max-w-[560px] mb-8">
+          Una base lista con servidor, base de datos y usuarios. Abre la carpeta en Claude Code,
+          describe lo que necesitas y él escribe el código.
+        </p>
+        <div class="flex gap-3 flex-wrap">
+          <a
+            href="#prompts"
+            class="bg-primary text-on-primary text-[15px] font-semibold py-3 px-6 rounded-full no-underline transition-colors hover:bg-primary-hover"
+            >Ver prompts de ejemplo</a
           >
-            <div>
-              <p
-                class="inline-flex items-center gap-2 text-[12px] font-bold tracking-[1.2px] uppercase text-accent bg-accent-soft rounded-full py-1.5 px-3.5 mb-6"
-              >
-                <Sparkles :size="14" aria-hidden="true" />
-                Plantilla de aplicación web
-              </p>
-              <h1
-                class="font-serif text-[clamp(38px,5vw,56px)] font-semibold tracking-[-1.2px] leading-[1.05] text-ink mb-6"
-              >
-                Construye tu propia herramienta, sin ser programador
-              </h1>
-              <p class="text-lg text-muted leading-[1.7] max-w-[470px] mb-9">
-                La base lista sobre la que Claude Code construye lo que necesitas. Tú pones las
-                reglas; el código se escribe solo.
-              </p>
-              <div class="flex gap-3 flex-wrap">
-                <a
-                  href="#empezar"
-                  class="bg-primary text-on-primary text-[15px] font-semibold py-[13px] px-7 rounded-full no-underline shadow-[0_8px_20px_-8px_var(--color-primary)] transition-colors hover:bg-primary-hover"
-                  >Cómo empezar</a
-                >
-                <a
-                  href="#incluye"
-                  class="text-ink text-[15px] font-semibold py-[13px] px-7 rounded-full no-underline border border-line transition-colors hover:border-accent hover:text-accent"
-                  >Qué incluye</a
-                >
-              </div>
-            </div>
+          <a
+            href="#stack"
+            class="text-ink text-[15px] font-semibold py-3 px-6 rounded-full no-underline border border-line transition-colors hover:border-ink"
+            >Qué incluye</a
+          >
+        </div>
+      </section>
 
-            <!-- Conversación de ejemplo -->
+      <!-- Prompts de ejemplo -->
+      <section id="prompts" class="border-t border-line scroll-mt-16">
+        <div class="max-w-[960px] mx-auto px-8 py-16 max-sm:px-4 max-sm:py-12">
+          <h2 class="font-serif text-[30px] font-semibold tracking-[-0.5px] leading-[1.15] mb-2">
+            Prompts de ejemplo
+          </h2>
+          <p class="text-base text-muted leading-[1.6] mb-8 max-w-[560px]">
+            Cópialos en Claude Code y ajústalos a lo que necesitas. Usa siempre datos ficticios o
+            anonimizados.
+          </p>
+          <div class="grid grid-cols-2 gap-4 max-md:grid-cols-1">
             <div
-              class="border border-line rounded-[28px] bg-subtle p-5 grid gap-3.5 shadow-[0_28px_56px_-28px_rgba(31,26,10,0.25)]"
-              aria-label="Ejemplo de conversación con Claude"
+              v-for="(prompt, i) in prompts"
+              :key="prompt.titulo"
+              class="flex flex-col gap-3 rounded-2xl border border-line bg-subtle p-5"
             >
-              <div class="flex items-center gap-2 pb-1 text-muted" aria-hidden="true">
-                <span
-                  class="w-6 h-6 rounded-full bg-accent-soft text-accent flex items-center justify-center"
+              <div class="flex items-center justify-between gap-3">
+                <h3 class="text-[15px] font-bold text-ink">{{ prompt.titulo }}</h3>
+                <button
+                  class="flex shrink-0 cursor-pointer items-center gap-1.5 rounded-full border border-line bg-bg px-3 py-1.5 text-[12px] font-semibold text-muted transition-colors hover:border-ink hover:text-ink"
+                  :aria-label="`Copiar el prompt: ${prompt.titulo}`"
+                  @click="copiar(prompt.texto, i)"
                 >
-                  <Sparkles :size="13" :stroke-width="2.2" />
-                </span>
-                <span class="text-xs font-semibold tracking-wide">Claude Code</span>
+                  <Check v-if="copiado === i" :size="13" aria-hidden="true" />
+                  <Copy v-else :size="13" aria-hidden="true" />
+                  {{ copiado === i ? "Copiado" : "Copiar" }}
+                </button>
               </div>
-              <div
-                class="justify-self-end max-w-[88%] bg-primary text-on-primary text-sm leading-normal py-3 px-4 rounded-[20px] rounded-br-[6px]"
+              <p
+                class="font-mono text-[13px] leading-[1.65] text-body bg-bg border border-line rounded-xl p-4"
               >
-                Lee inbox/ventas.xlsx y crea una página con el total vendido por mes, ordenado de
-                mayor a menor.
-              </div>
-              <div
-                class="justify-self-start max-w-[88%] bg-bg border border-line text-body text-sm leading-normal py-3 px-4 rounded-[20px] rounded-bl-[6px]"
-              >
-                Listo. Creé la página <strong class="text-ink">Ventas por mes</strong> y la conecté
-                a la base de datos. Ábrela en <strong class="text-ink">localhost:5173</strong> y
-                dime qué ajustar.
-              </div>
+                {{ prompt.texto }}
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Qué incluye -->
-      <section id="incluye" class="bg-subtle border-y border-line scroll-mt-16">
-        <div class="max-w-[1080px] mx-auto px-8 py-20 max-sm:px-4 max-sm:py-14">
-          <p class="text-[12px] font-bold tracking-[1.2px] uppercase text-accent mb-3">Incluido</p>
-          <h2 class="font-serif text-[34px] font-semibold tracking-[-0.7px] leading-[1.1] mb-3">
-            No arrancas desde una carpeta vacía
+      <!-- Stack -->
+      <section id="stack" class="border-t border-line scroll-mt-16">
+        <div class="max-w-[960px] mx-auto px-8 py-16 max-sm:px-4 max-sm:py-12">
+          <h2 class="font-serif text-[30px] font-semibold tracking-[-0.5px] leading-[1.15] mb-2">
+            Para qué sirve cada cosa
           </h2>
-          <p class="text-base text-muted leading-[1.6] mb-10 max-w-[520px]">
-            La parte técnica ya está resuelta y probada. Tú te enfocas en lo que hace única tu
-            herramienta.
+          <p class="text-base text-muted leading-[1.6] mb-8 max-w-[560px]">
+            No necesitas dominar estas piezas. Conocerlas te ayuda a explicarle a Claude qué quieres
+            cambiar.
           </p>
           <div class="grid grid-cols-3 gap-4 max-md:grid-cols-2 max-sm:grid-cols-1">
             <div
-              v-for="item in incluye"
-              :key="item.titulo"
-              class="group bg-bg border border-line rounded-[22px] p-6 transition-all duration-200 hover:-translate-y-0.5 hover:border-accent hover:shadow-[0_18px_32px_-22px_rgba(31,26,10,0.3)]"
+              v-for="item in stack"
+              :key="item.nombre"
+              class="rounded-2xl border border-line p-5"
             >
-              <span
-                class="mb-4 flex h-11 w-11 items-center justify-center rounded-[14px_14px_14px_4px] bg-accent-soft text-accent"
-              >
-                <component :is="item.icono" :size="22" :stroke-width="1.8" aria-hidden="true" />
-              </span>
-              <p class="font-bold text-[16px] leading-[1.3] mb-2 text-ink">{{ item.titulo }}</p>
+              <component
+                :is="item.icono"
+                class="mb-4 text-ink"
+                :size="20"
+                :stroke-width="1.8"
+                aria-hidden="true"
+              />
+              <h3 class="text-[15px] font-bold text-ink mb-1.5">{{ item.nombre }}</h3>
               <p class="text-sm text-muted leading-[1.6]">{{ item.texto }}</p>
             </div>
           </div>
         </div>
       </section>
-
-      <!-- Cómo empezar -->
-      <section
-        id="empezar"
-        class="max-w-[1080px] mx-auto px-8 py-20 scroll-mt-16 max-sm:px-4 max-sm:py-14"
-      >
-        <p class="text-[12px] font-bold tracking-[1.2px] uppercase text-accent mb-3">
-          Primeros pasos
-        </p>
-        <h2 class="font-serif text-[34px] font-semibold tracking-[-0.7px] leading-[1.1] mb-3">
-          Tres pasos, ningún comando
-        </h2>
-        <p class="text-base text-muted leading-[1.6] mb-10 max-w-[520px]">
-          Tu rol es el de quien dirige: defines las reglas y revisas el resultado. Claude escribe el
-          código.
-        </p>
-        <ol class="grid grid-cols-3 gap-6 list-none max-md:grid-cols-1">
-          <li v-for="(paso, i) in pasos" :key="paso.titulo" class="relative pt-5">
-            <span class="absolute left-0 top-0 h-[3px] w-full rounded-full bg-line"></span>
-            <span class="absolute left-0 top-0 h-[3px] w-12 rounded-full bg-accent"></span>
-            <span
-              class="block font-serif text-[48px] font-semibold leading-none text-accent mb-3"
-              >{{ i + 1 }}</span
-            >
-            <p class="font-bold text-[16px] leading-[1.3] mb-2">{{ paso.titulo }}</p>
-            <p class="text-sm text-muted leading-[1.6]">{{ paso.texto }}</p>
-          </li>
-        </ol>
-
-        <div class="mt-12 border border-line rounded-[28px] p-7 bg-subtle max-sm:p-5">
-          <h3 class="font-serif text-xl font-semibold mb-1.5">Un primer pedido de ejemplo</h3>
-          <p class="text-sm text-muted mb-4">
-            Cópialo en Claude Code y ajústalo a lo que necesitas.
-          </p>
-          <pre
-            class="font-mono text-[13px] leading-[1.6] text-body bg-bg border border-line border-l-[3px] border-l-accent rounded-xl p-4 whitespace-pre-wrap"
-          >
-Lee el archivo inbox/ventas.xlsx y crea una página que muestre el total vendido por mes, ordenado de mayor a menor. Usa únicamente los datos del archivo.</pre>
-        </div>
-      </section>
     </main>
 
     <!-- Pie de página -->
-    <footer class="bg-footer text-[#d9d1b5]">
-      <div
-        class="max-w-[1080px] mx-auto px-8 py-10 flex items-center justify-between gap-4 max-sm:px-4 max-sm:flex-col max-sm:text-center"
-      >
-        <span class="flex items-center gap-2.5 font-serif font-semibold text-[#fbf6e3]">
-          <span
-            class="flex h-6 w-6 items-center justify-center rounded-lg bg-primary text-on-primary"
-            aria-hidden="true"
-          >
-            <Leaf :size="14" :stroke-width="2.2" />
-          </span>
-          Claude Code para Todos
-        </span>
-        <span class="text-[13px] text-[#a49b7c]">© {{ year }} Claude Code para Todos</span>
-      </div>
+    <footer class="border-t border-line py-7 px-6 text-center text-[13px] text-muted">
+      © {{ year }} Claude Code para Todos
     </footer>
   </div>
 </template>

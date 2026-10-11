@@ -10,7 +10,7 @@ No arrancas desde una carpeta vacía. El servidor, la base de datos y el inicio 
 
 - **Herramientas de construcción**: [Vite+](https://viteplus.dev/) (`vp`), que agrupa Vite, Rolldown y Vitest.
 - **Interfaz**: [Vue 3](https://vuejs.org/) + TypeScript + Vue Router.
-- **Estilos**: [Tailwind CSS v4](https://tailwindcss.com/) con una paleta propia en amarillo sobre fondo blanco, con modo claro y oscuro.
+- **Estilos**: [Tailwind CSS v4](https://tailwindcss.com/) con una paleta neutra (blanco, grises y negro), con modo claro y oscuro.
 - **Design system**: componentes reutilizables en un paquete propio.
 - **Servidor**: [Hono](https://hono.dev/) sobre Node.js.
 - **Usuarios**: [Better Auth](https://www.better-auth.com/) para registro e inicio de sesión.
@@ -106,7 +106,7 @@ _Nota: los dos servidores usan `vite-plugin-killer-instincts` junto con `strictP
 
 ## 🎨 Estilos (Tailwind CSS v4)
 
-- **Identidad visual**: los colores y tipografías se definen en `apps/frontend/src/index.css`, dentro del bloque `@theme`. El color de acento es el amarillo `#facc15` (con texto oscuro encima), más un ámbar `#a16207` para texto y enlaces, y una variante para el modo oscuro. Las fuentes se importan en `apps/frontend/src/main.ts`.
+- **Identidad visual**: los colores y tipografías se definen en `apps/frontend/src/index.css`, dentro del bloque `@theme`. La paleta es neutra: fondo blanco, grises y negro `#171717` como color principal (con texto blanco encima), y su versión invertida en el modo oscuro. Para cambiar el color de la plantilla basta con editar esas variables y las de `packages/design-system/src/styles/theme.css`. Las fuentes se importan en `apps/frontend/src/main.ts`.
 - **Sin duplicación**: el paquete `@bambu/design-system` no compila Tailwind por su cuenta. Exporta los componentes Vue y un `theme.css` con variables de respaldo.
 - **Lectura de componentes**: la interfaz incluye los componentes del design system con la directiva `@source` en `index.css`:
   ```css
