@@ -1,6 +1,6 @@
-# Claude para Contadores — Plantilla de aplicación web
+# Claude Code para Todos — Plantilla de aplicación web
 
-Plantilla oficial del libro **Claude para Contadores** de [Somos Contas](https://somoscontas.com). Es la base sobre la que Claude Code construye tus herramientas contables: conciliadores, validadores de facturas, semáforos tributarios y cualquier aplicación que necesite guardar información.
+Plantilla del libro **Claude Code para Todos**. Es la base sobre la que Claude Code construye tus propias herramientas: paneles, formularios, validadores y cualquier aplicación que necesite guardar información.
 
 No arrancas desde una carpeta vacía. El servidor, la base de datos y el inicio de sesión ya están configurados, para que tu trabajo se concentre en lo que sí es irremplazable: las reglas del negocio.
 
@@ -10,7 +10,7 @@ No arrancas desde una carpeta vacía. El servidor, la base de datos y el inicio 
 
 - **Herramientas de construcción**: [Vite+](https://viteplus.dev/) (`vp`), que agrupa Vite, Rolldown y Vitest.
 - **Interfaz**: [Vue 3](https://vuejs.org/) + TypeScript + Vue Router.
-- **Estilos**: [Tailwind CSS v4](https://tailwindcss.com/) con la identidad visual de Somos Contas.
+- **Estilos**: [Tailwind CSS v4](https://tailwindcss.com/) con una paleta propia en tonos cálidos.
 - **Design system**: componentes reutilizables en un paquete propio.
 - **Servidor**: [Hono](https://hono.dev/) sobre Node.js.
 - **Usuarios**: [Better Auth](https://www.better-auth.com/) para registro e inicio de sesión.
@@ -27,9 +27,9 @@ No arrancas desde una carpeta vacía. El servidor, la base de datos y el inicio 
 │   ├── backend/          # Servidor Hono, usuarios (Better Auth) y esquema de la base de datos
 │   └── frontend/         # Aplicación Vue 3, rutas y páginas (Tailwind v4)
 ├── packages/
-│   └── design-system/    # Componentes reutilizables (p. ej. BaseButton.vue) y colores de la marca
+│   └── design-system/    # Componentes reutilizables (p. ej. BaseButton.vue) y colores base
 ├── data/                 # Base de datos SQLite local (no se sube a Git)
-├── inbox/                # Carpeta para tus archivos de prueba: extractos, XML, Excel
+├── inbox/                # Carpeta para tus archivos de prueba: hojas de Excel, PDF, imágenes
 ├── pnpm-workspace.yaml   # Espacios de trabajo y versiones de las dependencias
 ├── package.json          # Scripts y configuración general
 └── tsconfig.json         # Opciones globales de TypeScript
@@ -105,7 +105,7 @@ _Nota: los dos servidores usan `vite-plugin-killer-instincts` junto con `strictP
 
 ## 🎨 Estilos (Tailwind CSS v4)
 
-- **Identidad visual**: los colores y tipografías de Somos Contas se definen en `apps/frontend/src/index.css`, dentro del bloque `@theme`. El verde de la marca es `#059669`.
+- **Identidad visual**: los colores y tipografías se definen en `apps/frontend/src/index.css`, dentro del bloque `@theme`. El color de acento es `#c2410c`.
 - **Sin duplicación**: el paquete `@bambu/design-system` no compila Tailwind por su cuenta. Exporta los componentes Vue y un `theme.css` con variables de respaldo.
 - **Lectura de componentes**: la interfaz incluye los componentes del design system con la directiva `@source` en `index.css`:
   ```css
@@ -126,7 +126,7 @@ _Nota: los dos servidores usan `vite-plugin-killer-instincts` junto con `strictP
 
 ## 📂 La carpeta `inbox/`
 
-La carpeta `inbox/` es el lugar para dejar los archivos con los que Claude va a trabajar: extractos bancarios, facturas XML, listados de clientes en Excel, documentos de referencia o imágenes. Su contenido no se sube a Git ni forma parte de la aplicación final.
+La carpeta `inbox/` es el lugar para dejar los archivos con los que Claude va a trabajar: hojas de Excel, PDF, documentos de referencia o imágenes. Su contenido no se sube a Git ni forma parte de la aplicación final.
 
 Usa siempre datos ficticios o anonimizados.
 

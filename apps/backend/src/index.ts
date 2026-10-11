@@ -56,7 +56,7 @@ if (process.env.SERVE_STATIC === "true") {
   app.get("*", serveStatic({ path: resolve(frontendDist, "index.html") }));
 } else {
   app.get("/", (c) => {
-    return c.text("La API de Claude para Contadores está funcionando.");
+    return c.text("La API está funcionando.");
   });
 }
 

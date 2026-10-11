@@ -1,19 +1,19 @@
 :root {
-  /* Tipografía (sistema, como somoscontas.com) */
+  /* Tipografía (sistema) */
   --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
 
-  /* Colores del design system (valores de respaldo, marca Somos Contas) */
-  --color-primary: #059669;
-  --color-primary-hover: #047857;
-  --color-secondary: #ffffff;
-  --color-secondary-hover: #f9fafb;
+  /* Colores del design system (valores de respaldo) */
+  --color-primary: #c2410c;
+  --color-primary-hover: #9a3412;
+  --color-secondary: #fbf8f3;
+  --color-secondary-hover: #f4efe7;
 
-  --color-bg-secondary: #f9fafb;
-  --color-text-primary: #0f1115;
+  --color-bg-secondary: #f4efe7;
+  --color-text-primary: #1c1917;
 
-  --color-border-color: #e5e7eb;
-  --color-glass-bg: rgba(255, 255, 255, 0.7);
-  --color-glass-border: rgba(15, 17, 21, 0.08);
+  --color-border-color: #e7e0d6;
+  --color-glass-bg: rgba(251, 248, 243, 0.7);
+  --color-glass-border: rgba(28, 25, 23, 0.08);
 
   /* Radios */
   --radius-sm: 7px;
